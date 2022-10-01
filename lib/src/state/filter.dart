@@ -1,11 +1,10 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 
 /// State of filter data
 class S2Filter extends ChangeNotifier {
   bool _activated = false;
 
-  String _value;
+  String? _value;
 
   /// Text controller
   final TextEditingController ctrl = TextEditingController();
@@ -14,7 +13,7 @@ class S2Filter extends ChangeNotifier {
   bool get activated => _activated;
 
   /// Returns the current filter value
-  String get value => _value;
+  String? get value => _value;
 
   @override
   void dispose() {
@@ -29,7 +28,7 @@ class S2Filter extends ChangeNotifier {
     // and when physical back button pressed
     // will close the searchbar instead of close the modal
     LocalHistoryEntry entry = LocalHistoryEntry(onRemove: stop);
-    ModalRoute.of(context).addLocalHistoryEntry(entry);
+    ModalRoute.of(context)!.addLocalHistoryEntry(entry);
 
     _activated = true;
     notifyListeners();
@@ -56,7 +55,7 @@ class S2Filter extends ChangeNotifier {
   }
 
   /// Apply new value to filter query
-  void apply(String val) {
+  void apply(String? val) {
     _value = val;
     notifyListeners();
   }
