@@ -20,7 +20,7 @@ class _FeaturesBrightnessState extends State<FeaturesBrightness> {
   Widget build(BuildContext context) {
     return SmartSelect<int>.single(
       title: 'Brightness',
-      selectedValue: ThemePatrol.of(context).themeMode.index,
+      selectedValue: 1,
       onChange: (selected) {
         ThemePatrol.of(context).setMode(ThemeMode.values[selected.value]);
       },
